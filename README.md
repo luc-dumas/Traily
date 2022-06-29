@@ -3,7 +3,7 @@ This is a full-stack (MERN) application. Users of the site are able to register 
 
 **Link to project:** https://traily.netlify.app/
 
-![alt tag](https://imgur.com/gallery/82A1Cus)
+![traily](https://user-images.githubusercontent.com/62025065/176498706-8f16b2f2-25b6-491c-8850-c3fa108789ae.png)
 
 ## How It's Made:
 
