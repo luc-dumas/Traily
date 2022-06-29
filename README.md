@@ -1,5 +1,5 @@
 # Traily
-This is a full-stack (MERN) application. Users of the site are able to register an account, login, and then add unique pins the map. Each pin has the title of the trailhead as well as a description. USers are able to see all the pins that have been placed by other users as well as their own, which are indicated by a green marker. 
+This is a full-stack (MERN) application. Users of the site are able to register an account, login, and then add unique pins to the map. Each pin has the title of the trailhead as well as a description. USers are able to see all the pins that have been placed by other users as well as their own, which are indicated by a green marker. 
 
 **Link to project:** https://traily.netlify.app/
 
@@ -7,24 +7,21 @@ This is a full-stack (MERN) application. Users of the site are able to register 
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** HTML, CSS, JavaScript, Mongodb, Express, React, Nodejs, Mongoose, bcrypt
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+This app was built using the MERN stack. From the top down, I used React to build my frontend; the login, register and header were built using components and I managed the state of the project using useEffect() and useState().
+Next, I used the Express inside my Node.js server. With express, I built the routing and HTTP requests & responses. Additionally, every password was encrypted.
+Lastly, I used the NoSQL database MongoDb to store data about the pins (such as the longitude, latitude, title, description, creation date, and so on) as well as data about the users. I managed my backend with NodeJs and Express. I built models for the data using Mongoose. 
 
 ## Optimizations
-*(optional)*
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+Originally, I didn't build this website with an encrytped password. However, after having built the project I decided that it was something that I could add that would grealty improve upon the project. I used bcrypt to hash each password upon registering for an account. The implementation proved a little tricky but I was able to figure it out in time.
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+This project was difficult. I had no experience with Mapbox but had wanted to give it try. While similar to Google Maps in some regards (I have some experience working with the Google Maps API), there were some differences that left room for me to learn. Although the Mapbox documentation was useful, I had to use "react-map-gl" for my React application. Many things I were not the same, and I had to find answers to my problems elsewhere.
+  Central to the entire idea of the appplicatin was overlaying the markers on the map with data that came from the database. It took some time with lots of mishaps during the development. 
+   Lastly, deploying the application was an arduous process. It turns out that Mapbox has some issues deploying with React and some work arounds must be done.
+   All in all, this project made me problem solve and think around every corner.
+  
 
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
