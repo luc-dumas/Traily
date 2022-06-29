@@ -11,7 +11,7 @@ This is a full-stack (MERN) application. Users of the site are able to register 
 
 This app was built using the MERN stack. From the top down, I used React to build my frontend; the login, register and header were built using components and I managed the state of the project using useEffect() and useState().
 
-Next, I used the Express inside my Node.js server. With express, I built the routing and HTTP requests & responses. Additionally, every password was encrypted.
+Next, I used the Express inside my Node.js server. With Express, I built the routing and HTTP requests & responses. Additionally, every password was encrypted.
 
 Lastly, I used the NoSQL database MongoDb to store data about the pins (such as the longitude, latitude, title, description, creation date, and so on) as well as data about the users. I managed my backend with NodeJs and Express. I built models for the data using Mongoose. 
 
@@ -21,9 +21,9 @@ Originally, I didn't build this website with an encrytped password. However, aft
 
 ## Lessons Learned:
 
-This project was difficult. I had no experience with Mapbox but had wanted to give it try. While similar to Google Maps in some regards (I have some experience working with the Google Maps API), there were some differences that left room for me to learn. Although the Mapbox documentation was useful, I had to use "react-map-gl" for my React application. Many things I were not the same, and I had to find answers to my problems elsewhere.
+Prior to this project, I had no experience with Mapbox but had wanted to give it a try. While similar to Google Maps in some regards (I have some experience working with the Google Maps API), there were some differences that left room for me to learn. Although the Mapbox documentation was useful, I had to use "react-map-gl" - a wrapper for a React application. Many things were not the same, and I had to find answers to my problems elsewhere.
 
-  Central to the entire idea of the appplicatin was overlaying the markers on the map with data that came from the database. It took some time with lots of mishaps during the development. 
+  Central to the appplication was overlaying the markers on the map with data that came from the database. It took some time with lots of mishaps during the development. 
   
    Lastly, deploying the application was an arduous process. It turns out that Mapbox has some issues deploying with React and some work arounds must be done.
    
