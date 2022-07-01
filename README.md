@@ -1,5 +1,5 @@
 # Traily
-This is a full-stack (MERN) application. Users of the site are able to register an account, login, and then add unique pins to the map. Each pin has the title of the trailhead as well as a description. USers are able to see all the pins that have been placed by other users as well as their own, which are indicated by a green marker. 
+This is a full-stack (MERN) application built for a client. Users of the site are able to register an account, login, and then add unique pins to the map. Each pin has the title of the trailhead as well as a description. Users are able to see all the pins that have been placed by other users as well as their own, which are indicated by a green marker. 
 
 **Link to project:** https://traily.netlify.app/
 
@@ -27,6 +27,6 @@ Prior to this project, I had no experience with Mapbox but had wanted to give it
   
    Lastly, deploying the application was an arduous process. It turns out that Mapbox has some issues deploying with React and some work arounds must be done.
    
-   All in all, this project made me problem solve and think around every corner.
+   In the end, my client was as happy as I was with how this unique project turned out.
   
 
