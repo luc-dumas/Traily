@@ -19,6 +19,20 @@ Lastly, I used the NoSQL database MongoDb to store data about the pins (such as 
 
 Originally, I didn't build this website with an encrytped password. However, after having built the project I decided that it was something that I could add that would grealty improve upon the project. I used bcrypt to hash each password upon registering for an account. The implementation proved a little tricky but I was able to figure it out in time.
 
+This is the first iteratino of the project and another version is being worked on. For the next version I'd like to implement the following: 
+
+• Use Redux to manage the state of the application
+
+• Captcha - so users cant be made via web automation
+
+• There should be some more constraints on the password input, username, and email
+
+• Would put Mapbox token into some sort of environmental variable hosting like Azure
+
+• A way for an admin to delete user posts, etc
+
+
+
 ## Lessons Learned:
 
 Prior to this project, I had no experience with Mapbox but had wanted to give it a try. While similar to Google Maps in some regards (I have some experience working with the Google Maps API), there were some differences that left room for me to learn. Although the Mapbox documentation was useful, I had to use "react-map-gl" - a wrapper for a React application. Many things were not the same, and I had to find answers to my problems elsewhere.
