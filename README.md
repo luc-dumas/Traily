@@ -44,3 +44,83 @@ Prior to this project, I had no experience with Mapbox but had wanted to give it
    In the end, my client was as happy as I was with how this unique project turned out.
   
 
+
+
+# A more detailed description of how this app works is outlined below:
+
+
+
+# FRONTEND
+
+The front end was built with React. The landing page is a fullscreen map with various markers placed on it; each marker includes a title, description, and information about when and who created the marker. In the upper right-hand corner, there are buttons for logging in and registering. When clicked, a popup box opens in the center of the screen. 
+
+When users are logged in, the markers they have created are colored green whilst those created by others are colored grey. 
+
+The map used for this application was MapBox. I used ‘react-map-gl’ which served as a React wrapper for using Mapbox GL JS. 
+
+## Users
+
+### Registering Users
+ I created a form where users can input their username, email, and password to register an account. If a user successfully registers an account (if their inputted data correctly matches the user schema), then the message “Successful. You can log in now” will be displayed. Similarly, if there is an error, the message “Something went wrong” will be displayed.
+ 
+**On Submit**
+
+Using the react hook ‘useRef’ to access the inputted values of the form, I created an object entitled ‘newUser’ containing all of these values. If the request is successful this new object is sent, using Axios, in a POST request to the ‘register’ API endpoint as defined in the routes. 
+
+### Logging In 
+
+The login feature is contained in a component ‘Login’ that takes in three props: setShowLogin, myStorage, and setCurrentUser. Where this ‘Login’ component is used in App.js, the prop passed for myStorage is window.localStorage. This prop allows for the saving of the user across browser sessions. 
+
+
+**On Submit**
+
+Using the react hook ‘useRef’ to access the inputted values of the form, I created an object entitled ‘user’ containing all of these values (username and password).  If the request is successful this new object is sent, using Axios, in a POST request to the ‘login’ URL as defined in the routes. Additionally, the following will happen: a ‘user’ is set in localStorage based on the username input (the user is now saved across browsing sessions), the current user is set to what was inputted, and the log-in component is set to ‘false’ rendering it invisible.	
+
+
+
+
+
+## App.js
+In this file, I’ve imported ‘Map’ (to display the map), ‘Marker’ (to add markers to the map), and ‘Popup’ (to display popup boxes next to markers) - all from ‘react-map-gl’ (a wrapper used for mapbox to make it easier to use within React applications).
+
+
+### Log in/Register Display
+Depending on whether a user is logged in or not, either “Logout” will be displayed or “Log in”/”Register” will be displayed. This is dependent on the piece of state called currentUser. It has an initial value of ‘myStorage.getItem('user')’. As defined in the ‘Login’ component, a ‘user’ is added to localStorage upon logging in. Therefore, if a user is logged in there will be a user saved to local storage.	
+
+
+### Map component
+
+
+Adding this component in JSX requires adding props of initial view state, style, as well as access token. Additionally, I added a prop ‘onDblClick’ that points to a hander function ‘handleAddClick’
+
+## Markers
+### Adding a Marker
+One of the props of the ‘Map’ component is onDblClick={handleAddClick}. The ‘handleAddClick’ function first finds the latitude and longitude from the click event on the map and only while a user is logged in will it then set the values of the state ‘newPlace’ to the latitude and longitude of the event. 
+Now that the state of ‘newPlace’ is no longer null, a pop-up will open up with a form with a title and description. Upon closing this popup, the state ‘newplace’ is reset to null. The popup pops up at the longitude and latitude of the click event. 
+	The entered title and description will be saved to the state ‘title’ and ‘desc‘ respectively. When this form is submitted, the function ‘handleSubmit’ is triggered.
+First, a new object is created called ‘newPin’ - the username is set to the current user, the title and description are set to what was entered in the form. The lat and long are set to the lat and long that were saved to the state ‘newPlace’. On submit, this object is sent, using Axios, to an API endpoint defined in the ‘pin’ route and it is saved in the database.
+The state ‘newPlace’ is now reset to null, and the ‘pins’ state reflects the addition of this new pin
+
+### Displaying Markers
+Each pin is reflected on the map by using the Marker component. Mapping over the state ‘pins’ we are able to define each marker by each pins long and lat. Additionally, if a user is logged in their marker will be green. When a marker is clicked the ‘handleMarkerClick’ function is triggered (with the props of lat, long, and id of the pin that was clicked). The function sets the state ‘currentPlaceId’ to the id that was just passed in.  The function then checks whether the pin’s id matches that of the marker that was clicked - if so, a pop-up will be displayed/. Its props are the latitude and longitude of the pin clicked. Additionally, on close, the state ‘currentPlaceId’ is reset. This pop-up displays the title, desc, as well as information about the user who made it and when it was made (using the module time ago).
+
+
+
+# BACKEND
+I created two schemas with Mongoose for two collections in a MongoDB database: Pins and Users. 
+
+Using Express as a node framework, I created routes for registering and logging-in users and routes for creating and getting markers.
+
+## Registering a User
+I created a POST route for registering a user. When registering a user, the inputted password is hashed using ‘bcrypt’  - the new user is then created with a hashed password. This user is then saved to the database. 
+
+## Logging in a User
+I created a POST route for logging in users, that checks the inputted username and password against what is stored in the user collection in the database. 
+
+## Creating a Pin
+I created a POST route that awaits for a new pin to be selected and then sends that back as the response. 
+
+## Getting all Pins
+I created a GET route that finds all the pins and then sends that back as a response. 
+
+
